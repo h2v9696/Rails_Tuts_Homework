@@ -12,6 +12,16 @@
       <%= f.label :email %>
       <%= f.email_field :email, class: "form-control" %>
 
+      <%= f.label :birthday %>
+      <%= f.date_select :birthday, {order: [:month, :day, :year],
+        prompt: {day: "Select day", month: "Select month", year: "Select year"},
+          start_year: Date.today.year, end_year: Date.today.year - 100},
+            {required: true} %>
+
+
+      <%= f.label :gender %>
+      <%= f.select :gender, User.gender_types %>
+
       <%= f.label :password %>
       <%= f.password_field :password, class: "form-control" %>
 
